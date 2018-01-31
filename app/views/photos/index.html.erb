@@ -1,24 +1,14 @@
-<p id="notice"><%= notice %></p>
+<h1>Listing ideas</h1>
 
-<h1>Photos</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @photos.reverse_each do |photo| %>
-      <tr>
-        <td><%= link_to (image_tag photo.picture_url, width: '25%' if photo.picture.present?), photo %><td>
-        <td><%= link_to photo.name, photo %></td>
-      </tr>
+<% @photos.in_groups_of(3) do |group| %>
+  <div class="row">
+    <% group.compact.reverse_each do |idea| %>
+      <div class="col-md-4">
+        <%=link_to (image_tag idea.picture_url, width: '75%' if idea.picture.present?), idea %>
+        <h4><%= link_to idea.name, idea %></h4>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
+  </div>
+<% end %>
 
 <%= link_to 'New Photo', new_photo_path %>

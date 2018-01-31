@@ -1,3 +1,5 @@
+  <%= image_tag(@photo.picture_url, width: 600) if @photo.picture.present? %>
+
 <p>
   <strong>Name:</strong>
   <%= @photo.name %>
@@ -9,8 +11,7 @@
 </p>
 
 <p>
-  <strong>Picture:</strong>
-  <%= image_tag(@photo.picture_url, width: 600) if @photo.picture.present? %>
+
   <br>
   <hr>
   <h3>Comments</h3>
@@ -26,4 +27,5 @@
 </p>
 
 <%= link_to 'Edit', edit_photo_path(@photo) %> |
+<%= link_to 'Delete', @photo, data: { confirm: 'Are you sure?' }, method: :delete %> |
 <%= link_to 'Back', photos_path %>
