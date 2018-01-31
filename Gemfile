@@ -12,6 +12,7 @@ gem 'rails', '~> 5.1.4'
 gem 'sqlite3'
 #photo
 gem 'carrierwave'
+gem 'mini_magick', '4.8.0'
 #devise
 gem 'devise'
 # Use Puma as the app server

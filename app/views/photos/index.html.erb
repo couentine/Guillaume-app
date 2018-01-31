@@ -5,22 +5,15 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Picture</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @photos.each do |photo| %>
+    <% @photos.reverse_each do |photo| %>
       <tr>
-        <td><%= photo.name %></td>
-        <td><%= photo.description %></td>
-        <td><%= photo.picture %></td>
-        <td><%= link_to 'Show', photo %></td>
-        <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
-        <td><%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to (image_tag photo.picture_url, width: '25%' if photo.picture.present?), photo %><td>
+        <td><%= link_to photo.name, photo %></td>
       </tr>
     <% end %>
   </tbody>
