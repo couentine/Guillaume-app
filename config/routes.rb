@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  get 'users/show'
+
 
   devise_for :users
-    resources :users, only: [:show]
+
 
   resources :comments
 
@@ -11,6 +11,9 @@ Rails.application.routes.draw do
     root 'users#show'
 
   get "pages/info"
+  get 'users/show'
+  get 'users/index'
+  get 'users/:id', to: "users#profiles", as: "user"
 
 
 end
